@@ -22,7 +22,7 @@
       border-radius: 10px;
       text-align: center;
       display: flex;
-      flex-direction: column; /* Added to stack lines vertically */
+      flex-direction: column;
       gap: 10px;
     }
     .line {
@@ -32,13 +32,13 @@
     }
     .letter {
       display: grid;
-      grid-template-columns: repeat(10, 5px); /* Double the columns */
-      grid-template-rows: repeat(14, 5px); /* Double the rows */
-      gap: 1px; /* Half the gap */
+      grid-template-columns: repeat(10, 5px); 
+      grid-template-rows: repeat(14, 5px); 
+      gap: 1px; 
     }
     .dot {
-      width: 5px; /* Half the size */
-      height: 5px; /* Half the size */
+      width: 5px; 
+      height: 5px; 
       background-color: #333;
       border-radius: 50%;
     }
@@ -89,7 +89,7 @@
         [1, 0, 0, 0, 1],
         [1, 0, 0, 0, 1],
         [1, 0, 0, 0, 1],
-        [1, 1, 1, , 0]
+        [1, 1, 1, 1, 0]
     ],
     'E': [
         [1, 1, 1, 1, 1],
@@ -412,8 +412,8 @@
       [0, 0, 0, 0, 0],
       [0, 0, 0, 0, 0],
       [0, 0, 0, 0, 0],
-      [1, 1, 0, 0, 0],
-      [1, 1, 0, 0, 0],
+      [0, 0, 0, 0, 0],
+      [1, 0, 0, 0, 0],
     ],
     '(': [
       [0, 1, 0, 0, 0],
@@ -468,6 +468,24 @@
       [0, 0, 0, 0, 0],
       [0, 0, 0, 0, 0],
       [0, 0, 0, 0, 0]
+    ],
+    '<': [
+      [0, 0, 0, 1, 0],
+      [0, 0, 1, 0, 0],
+      [0, 1, 0, 0, 0],
+      [1, 0, 0, 0, 0],
+      [0, 1, 0, 0, 0],
+      [0, 0, 1, 0, 0],
+      [0, 0, 0, 1, 0],
+    ],
+    '>': [
+      [0, 1, 0, 0, 0],
+      [0, 0, 1, 0, 0],
+      [0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 1],
+      [0, 0, 0, 1, 0],
+      [0, 0, 1, 0, 0],
+      [0, 1, 0, 0, 0],
     ]
   };
 
@@ -503,6 +521,7 @@
   
   function buildWord(word) {
     word = word.toUpperCase();
+
     const maxLineLength = 14;
     const maxLines = 3;
     const lines = [];
@@ -557,7 +576,7 @@
 
   // Example usage:
   //buildWord('minutes to:[NL]US-20       15[NL]Salt Lake  277');
-  buildWord('[NL]RIP TIKTOK[NL]');
+  buildWord('minutes to:[NL]byu-idaho   15[NL]st.anthony  27');
 
   document.getElementById('messageInput').addEventListener('input', function(event) {
     const text = event.target.value.replace(/\n/g, '[NL]');
