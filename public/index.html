@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visual Message Sign</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+      margin: 0;
+    }
+    .sign {
+      background-color: #000;
+      padding: 20px;
+      border: 5px solid #ff0;
+      border-radius: 10px;
+      text-align: center;
+      display: flex;
+      gap: 10px;
+    }
+    .letter {
+      display: grid;
+      grid-template-columns: repeat(5, 10px);
+      grid-template-rows: repeat(7, 10px);
+      gap: 2px;
+    }
+    .dot {
+      width: 10px;
+      height: 10px;
+      background-color: #333;
+      border-radius: 50%;
+    }
+    .dot.on {
+      background-color: #ff0;
+    }
+  </style>
+</head>
+<body>
+  <div class="sign">
+    <!-- H -->
+    <!-- Each letter is 5 wide and 7 tall -->
+    <div class="letter">
+      <div class="dot on"></div><div class="dot"></div><div class="dot on"></div><div class="dot"></div><div class="dot on"></div>
+      <div class="dot on"></div><div class="dot"></div><div class="dot on"></div><div class="dot"></div><div class="dot on"></div>
+      <div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div>
+      <div class="dot on"></div><div class="dot"></div><div class="dot on"></div><div class="dot"></div><div class="dot on"></div>
+      <div class="dot on"></div><div class="dot"></div><div class="dot on"></div><div class="dot"></div><div class="dot on"></div>
+      <div class="dot on"></div><div class="dot"></div><div class="dot on"></div><div class="dot"></div><div class="dot on"></div>
+      <div class="dot on"></div><div class="dot"></div><div class="dot on"></div><div class="dot"></div><div class="dot on"></div>
+    </div>
+    <!-- E -->
+    <div class="letter">
+      <div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div>
+      <div class="dot on"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot"></div>
+      <div class="dot on"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div>
+      <div class="dot on"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div>
+    </div>
+    <!-- L -->
+    <div class="letter">
+      <div class="dot on"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot on"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot on"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot on"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot on"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot on"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div>
+    </div>
+    <!-- L -->
+    <div class="letter">
+      <div class="dot on"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot on"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot on"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot on"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot on"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot on"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div>
+    </div>
+    <!-- O -->
+    <div class="letter">
+      <div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div>
+      <div class="dot on"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot on"></div>
+      <div class="dot on"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot on"></div>
+      <div class="dot on"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot on"></div>
+      <div class="dot on"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot on"></div>
+      <div class="dot on"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot on"></div>
+      <div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div>
+    </div>
+    <!-- Space -->
+    <div class="letter">
+      <!-- Empty space between Hello and World -->
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    </div>
+    <!-- W -->
+    <div class="letter">
+      <div class="dot on"></div><div class="dot"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div>
+      <div class="dot on"></div><div class="dot"></div><div class="dot on"></div><div class="dot"></div><div class="dot on"></div>
+      <div class="dot on"></div><div class="dot"></div><div class="dot on"></div><div class="dot"></div><div class="dot on"></div>
+      <div class="dot on"></div><div class="dot"></div><div class="dot on"></div><div class="dot"></div><div class="dot on"></div>
+      <div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot"></div><div class="dot on"></div>
+      <div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot"></div><div class="dot on"></div>
+      <div class="dot on"></div><div class="dot"></div><div class="dot on"></div><div class="dot"></div><div class="dot on"></div>
+    </div>
+    <!-- O -->
+    <div class="letter">
+      <div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div>
+      <div class="dot on"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot on"></div>
+      <div class="dot on"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot on"></div>
+      <div class="dot on"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot on"></div>
+      <div class="dot on"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot on"></div>
+      <div class="dot on"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot on"></div>
+      <div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div>
+    </div>
+    <!-- R -->
+    <div class="letter">
+      <div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot"></div>
+      <div class="dot on"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot on"></div>
+      <div class="dot on"></div><div class="dot"></div><div class="dot on"></div><div class="dot"></div><div class="dot on"></div>
+      <div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot on"></div><div class="dot"></div><div class="dot"></div><div class="dot on"></div><div class="dot"></div>
+      <div class="dot on"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot on"></div>
+      <div class="dot on"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot on"></div>
+    </div>
+    <!-- L -->
+    <div class="letter">
+      <div class="dot on"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot on"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot on"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot on"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot on"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot on"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div>
+    </div>
+    <!-- D -->
+    <div class="letter">
+      <div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot"></div>
+      <div class="dot on"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot on"></div>
+      <div class="dot on"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot on"></div>
+      <div class="dot on"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot on"></div>
+      <div class="dot on"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot on"></div>
+      <div class="dot on"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot on"></div>
+      <div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot"></div>
+    </div>
+  </div>
+
+  <script>
+  const charMap = {
+    // 5 long
+    // 7 tall
+    'A': [
+        [0, 1, 1, 1, 0],
+        [1, 0, 0, 0, 1],
+        [1, 0, 0, 0, 1],
+        [1, 1, 1, 1, 1],
+        [1, 0, 0, 0, 1],
+        [1, 0, 0, 0, 1],
+        [1, 0, 0, 0, 1]
+    ],
+    'B': [
+        [1, 1, 1, 1, 0],
+        [1, 0, 0, 0, 1],
+        [1, 0, 0, 0, 1],
+        [1, 1, 1, 1, 0],
+        [1, 0, 0, 0, 1],
+        [1, 0, 0, 0, 1],
+        [1, 1, 1, 1, 0]
+    ],
+    'C': [
+        [0, 1, 1, 1, 1],
+        [1, 0, 0, 0, 0],
+        [1, 0, 0, 0, 0],
+        [1, 0, 0, 0, 0],
+        [1, 0, 0, 0, 0],
+        [1, 0, 0, 0, 0],
+        [0, 1, 1, 1, 1]
+    ],
+    'D': [
+        [1, 1, 1, 0, 0],
+        [1, 0, 0, 1, 0],
+        [1, 0, 0, 0, 1],
+        [1, 0, 0, 0, 1],
+        [1, 0, 0, 0, 1],
+        [1, 0, 0, 1, 0],
+        [1, 1, 1, 0, 0]
+    ],
+    'E': [
+        [1, 1, 1, 1, 1],
+        [1, 0, 0, 0, 0],
+        [1, 0, 0, 0, 0],
+        [1, 1, 1, 1, 0],
+        [1, 0, 0, 0, 0],
+        [1, 0, 0, 0, 0],
+        [1, 1, 1, 1, 1]
+    ],
+    'F': [
+        [1, 1, 1, 1, 1],
+        [1, 0, 0, 0, 0],
+        [1, 1, 1, 1, 0],
+        [1, 0, 0, 0, 0],
+        [1, 0, 0, 0, 0],
+        [1, 0, 0, 0, 0],
+        [1, 0, 0, 0, 0]
+    ],
+    'G': [
+        [0, 1, 1, 1, 1],
+        [1, 0, 0, 0, 0],
+        [1, 0, 0, 0, 0],
+        [1, 0, 0, 1, 1],
+        [1, 0, 0, 0, 1],
+        [1, 0, 0, 0, 1],
+        [0, 1, 1, 1, 1]
+    ],
+    'H': [
+        [1, 0, 0, 0, 1],   
+        [1, 0, 0, 0, 1],  
+        [1, 0, 0, 0, 1],  
+        [1, 1, 1, 1, 1],     
+        [1, 0, 0, 0, 1], 
+        [1, 0, 0, 0, 1], 
+        [1, 0, 0, 0, 1]  
+    ],
+    'I': [
+        [1, 1, 1, 1, 1],
+        [0, 0, 1, 0, 0],
+        [0, 0, 1, 0, 0],
+        [0, 0, 1, 0, 0],
+        [0, 0, 1, 0, 0],
+        [0, 0, 1, 0, 0],
+        [1, 1, 1, 1, 1]
+    ],
+    'J': [
+        [1, 1, 1, 1, 1],
+        [0, 0, 0, 1, 0],
+        [0, 0, 0, 1, 0],
+        [0, 0, 0, 1, 0],
+        [0, 0, 0, 1, 0],
+        [1, 0, 0, 1, 0],
+        [0, 1, 1, 0, 0]
+    ],
+    'K': [
+        [1, 0, 0, 0, 1],
+        [1, 0, 0, 1, 0],
+        [1, 0, 1, 0, 0],
+        [1, 1, 0, 0, 0],
+        [1, 0, 1, 0, 0],
+        [1, 0, 0, 1, 0],
+        [1, 0, 0, 0, 1]
+    ],
+    'L': [
+        [1, 0, 0, 0, 0],
+        [1, 0, 0, 0, 0],
+        [1, 0, 0, 0, 0],
+        [1, 0, 0, 0, 0],
+        [1, 0, 0, 0, 0],
+        [1, 0, 0, 0, 0],
+        [1, 1, 1, 1, 1],
+    ],
+    'M': [
+        [1, 0, 0, 0, 1],
+        [1, 1, 0, 1, 1],
+        [1, 0, 1, 0, 1],
+        [1, 0, 1, 0, 1],
+        [1, 0, 0, 0, 1],
+        [1, 0, 0, 0, 1],
+        [1, 0, 0, 0, 1]
+    ],
+    'N': [
+        [1, 0, 0, 0, 1],
+        [1, 1, 0, 0, 1],
+        [1, 0, 1, 0, 1],
+        [1, 0, 0, 1, 1],
+        [1, 0, 0, 0, 1],
+        [1, 0, 0, 0, 1],
+        [1, 0, 0, 0, 1]
+    ],
+    'O': [
+        [0, 1, 1, 1, 0],
+        [1, 0, 0, 0, 1],
+        [1, 0, 0, 0, 1],
+        [1, 0, 0, 0, 1],
+        [1, 0, 0, 0, 1],
+        [1, 0, 0, 0, 1],
+        [0, 1, 1, 1, 0]
+    ],
+    'P': [
+        [1, 1, 1, 1, 0],
+        [1, 0, 0, 0, 1],
+        [1, 0, 0, 0, 1],
+        [1, 1, 1, 1, 0],
+        [1, 0, 0, 0, 0],
+        [1, 0, 0, 0, 0],
+        [1, 0, 0, 0, 0]
+    ],
+    'Q': [
+        [0, 1, 1, 1, 0],
+        [1, 0, 0, 0, 1],
+        [1, 0, 0, 0, 1],
+        [1, 0, 0, 0, 1],
+        [1, 0, 0, 0, 1],
+        [1, 0, 1, 0, 1],
+        [0, 1, 1, 1, 1]
+    ],
+    'R': [
+        [1, 1, 1, 1, 0],
+        [1, 0, 0, 0, 1],
+        [1, 0, 0, 0, 1],
+        [1, 1, 1, 1, 0],
+        [1, 0, 1, 0, 0],
+        [1, 0, 0, 1, 0],
+        [1, 0, 0, 0, 1]
+    ],
+    'S': [
+        [0, 1, 1, 1, 1],
+        [1, 0, 0, 0, 0],
+        [1, 0, 0, 0, 0],
+        [0, 1, 1, 1, 0],
+        [0, 0, 0, 0, 1],
+        [0, 0, 0, 0, 1],
+        [1, 1, 1, 1, 0]
+    ],
+    'T': [
+        [1, 1, 1, 1, 1],
+        [0, 0, 1, 0, 0],
+        [0, 0, 1, 0, 0],
+        [0, 0, 1, 0, 0],
+        [0, 0, 1, 0, 0],
+        [0, 0, 1, 0, 0],
+        [0, 0, 1, 0, 0]
+    ],
+    'U': [
+        [1, 0, 0, 0, 1],
+        [1, 0, 0, 0, 1],
+        [1, 0, 0, 0, 1],
+        [1, 0, 0, 0, 1],
+        [1, 0, 0, 0, 1],
+        [1, 0, 0, 0, 1],
+        [0, 1, 1, 1, 0]
+    ],
+    'V': [
+        [1, 0, 0, 0, 1],
+        [1, 0, 0, 0, 1],
+        [1, 0, 0, 0, 1],
+        [1, 0, 0, 0, 1],
+        [1, 0, 0, 0, 1],
+        [0, 1, 0, 1, 0],
+        [0, 0, 1, 0, 0]
+    ],
+    'W': [
+        [1, 0, 0, 0, 1],
+        [1, 0, 0, 0, 1],
+        [1, 0, 0, 0, 1],
+        [1, 0, 1, 0, 1],
+        [1, 0, 1, 0, 1],
+        [1, 1, 0, 1, 1],
+        [1, 0, 0, 0, 1]
+    ],
+    'X': [
+        [1, 0, 0, 0, 1],
+        [1, 0, 0, 0, 1],
+        [0, 1, 0, 1, 0],
+        [0, 0, 1, 0, 0],
+        [0, 1, 0, 1, 0],
+        [1, 0, 0, 0, 1],
+        [1, 0, 0, 0, 1]
+    ],
+    'Y': [
+        [1, 0, 0, 0, 1],
+        [1, 0, 0, 0, 1],
+        [0, 1, 0, 1, 0],
+        [0, 0, 1, 0, 0],
+        [0, 0, 1, 0, 0],
+        [0, 0, 1, 0, 0],
+        [0, 0, 1, 0, 0]
+    ],
+    'Z': [
+        [1, 1, 1, 1, 1],
+        [0, 0, 0, 0, 1],
+        [0, 0, 0, 1, 0],
+        [0, 0, 1, 0, 0],
+        [0, 1, 0, 0, 0],
+        [1, 0, 0, 0, 0],
+        [1, 1, 1, 1, 1]
+    ]
+  };
+
+  function createDot(isOn) {
+    const dot = document.createElement('div');
+    dot.classList.add('dot');
+    if (isOn) {
+      dot.classList.add('on');
+    }
+    return dot;
+  }
+
+  function createLetter(char) {
+    const letter = document.createElement('div');
+    letter.classList.add('letter');
+    const pattern = charMap[char];
+    if (pattern) {
+      pattern.forEach(row => {
+        row.forEach(isOn => {
+          letter.appendChild(createDot(isOn));
+        });
+      });
+    }
+    return letter;
+  }
+
+  function buildWord(word) {
+    word = word.toUpperCase();
+    const sign = document.querySelector('.sign');
+    sign.innerHTML = ''; // Clear previous content
+    word.split('').forEach(char => {
+      sign.appendChild(createLetter(char));
+    });
+  }
+
+  // Example usage:
+  buildWord('hello world');
+</script>
+</body>
+</html>
