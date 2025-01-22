@@ -567,6 +567,9 @@
         if (char === ' ') {
           char = 'SPACE'; // Replace space with 'SPACE'
         }
+        if (!charMap[char]) {
+          char = 'SPACE';
+        }
         lineDiv.appendChild(createLetter(char));
       });
 

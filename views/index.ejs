@@ -639,13 +639,21 @@
                 
                 let flashingChar = false;
 
+                const flashingChars = [];
+                const regex = /=(.*?)=/g;
+                let match;
+                while ((match = regex.exec(paddedLine)) !== null) {
+                    const chars = match[1].trim();
+                    flashingChars.push(...chars);
+                }
+
                 paddedLine.split('').forEach(char => {
                     if (char === ' ') {
                         char = 'SPACE'; // Replace space with 'SPACE'
                     }
                     if (char === '=') {
                         flashingChar = !flashingChar;
-                        return;
+                        char = '';
                     }
 
                     lineDiv.appendChild(createLetter(char, flashingChar));
@@ -692,10 +700,23 @@
     <% } %>
     <script>
         setInterval(() => {
-            const flashingElements = document.querySelectorAll('.flashing.on');
-            flashingElements.forEach(element => {
-                element.classList.toggle('on');
-            });
+            // Select all elements with the class .flashing.on
+            const flashingOnElements = document.querySelectorAll('.flashing.on');
+            
+            if (flashingOnElements.length > 0) {
+                // Turn off all elements with the class .flashing.on
+                flashingOnElements.forEach(element => {
+                    element.classList.remove('on');
+                    element.classList.add('off');
+                });
+            } else {
+                // Turn on all elements with the class .flashing
+                const flashingElements = document.querySelectorAll('.flashing.off');
+                flashingElements.forEach(element => {
+                    element.classList.add('on');
+                    element.classList.remove('off');
+                });
+            }
         }, 1000);
     </script>
 </body>
