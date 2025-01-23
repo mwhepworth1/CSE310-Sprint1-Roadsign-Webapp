@@ -435,16 +435,6 @@ const charMap = {
     ]
 };
 
-function parseText(input) {
-    const flashRegex = /=([^=]+)=/g;
-    const varyRegex = /\{([^|]+)\|([^|]+)\|([^}]+)\}/g;
-
-    let parsed = input.replace(flashRegex, '<span class="flashing">$1</span>');
-    parsed = parsed.replace(varyRegex, '<span class="varying-content" data-content1="$1" data-content2="$2" data-content3="$3"></span>');
-
-    return parsed;
-}
-
 function createDot(isOn, isFlashing) {
     const dot = document.createElement('div');
     dot.classList.add('dot');
@@ -568,7 +558,7 @@ async function shareMessage() {
             body: JSON.stringify({ message: text })
         });
         const data = await response.json();
-        const shareUrl = `${window.location.origin}/${data.id}`;
+        const shareUrl = `${window.location.origin}/${data.id}`; // Craft share URL based on location and ID
         const shareUrlDiv = document.getElementById('shareUrl');
         shareUrlDiv.textContent = shareUrl;
         shareUrlDiv.style.display = 'block';

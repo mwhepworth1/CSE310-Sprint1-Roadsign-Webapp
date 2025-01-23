@@ -6,8 +6,7 @@ const port = 5500;
 // Add body parser middleware
 app.use(express.json());
 
-// In-memory storage for shared messages (replace with database in production)
-const messages = new Map();
+const messages = new Map(); // Create a map to store shared messages
 
 // Set EJS as the view engine
 app.set('view engine', 'ejs');
@@ -16,7 +15,7 @@ app.set('views', path.join(__dirname, 'views'));
 // Serve static files
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Render index.ejs for the root route and pass a message
+// Render index.ejs for the root route and pass landing page message
 app.get('/', (req, res) => {
   res.render('index', { shared: false, phrase: 'Created By:[NL]Matthew[NL]Hepworth' });
 });
@@ -24,9 +23,9 @@ app.get('/', (req, res) => {
 // Share endpoint
 app.post('/share', (req, res) => {
   const { message } = req.body;
-  const id = Math.random().toString(36).substring(2, 8); // Generate random ID
+  const id = Math.random().toString(36).substring(2, 12); // Generate random 10 character ID
   messages.set(id, message);
-  res.json({ id });
+  res.json({ id }); // Respond to client with ID that can be used to load shared message
 });
 
 // View shared message
@@ -35,6 +34,7 @@ app.get('/:id', (req, res) => {
   if (message) {
     res.render('index', { shared: true, phrase: message });
   } else {
+    // If ID doesn't exist, reroute.
     res.redirect('/');
   }
 });
