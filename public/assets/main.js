@@ -434,3 +434,166 @@ const charMap = {
         [0, 1, 0, 0, 0],
     ]
 };
+
+function parseText(input) {
+    const flashRegex = /=([^=]+)=/g;
+    const varyRegex = /\{([^|]+)\|([^|]+)\|([^}]+)\}/g;
+
+    let parsed = input.replace(flashRegex, '<span class="flashing">$1</span>');
+    parsed = parsed.replace(varyRegex, '<span class="varying-content" data-content1="$1" data-content2="$2" data-content3="$3"></span>');
+
+    return parsed;
+}
+
+function createDot(isOn, isFlashing) {
+    const dot = document.createElement('div');
+    dot.classList.add('dot');
+    if (isOn) {
+        dot.classList.add('on');
+    }
+    if (isFlashing) {
+        dot.classList.add('flashing');
+    }
+    return dot;
+}
+
+function createLetter(char, isFlashing) {
+    const letter = document.createElement('div');
+    letter.classList.add('letter');
+    const pattern = charMap[char] || charMap['SPACE']; // Use 'SPACE' if character not found
+    if (pattern) {
+        pattern.forEach(row => {
+            row.forEach(isOn => {
+                // Double the number of dots for each letter
+                letter.appendChild(createDot(isOn, isFlashing));
+                letter.appendChild(createDot(isOn, isFlashing));
+            });
+            // Add an extra row of dots
+            row.forEach(isOn => {
+                letter.appendChild(createDot(isOn, isFlashing));
+                letter.appendChild(createDot(isOn, isFlashing));
+            });
+        });
+    }
+    return letter;
+}
+
+function buildWord(word) {
+    word = word.toUpperCase();
+
+    const maxLineLength = 14;
+    const maxLines = 3;
+    const lines = [];
+
+    // Split the input word by newline characters
+    const rawLines = word.split('[NL]');
+
+    rawLines.forEach(rawLine => {
+        const words = rawLine.split(' ');
+        let currentLine = '';
+
+        words.forEach(word => {
+            if ((currentLine + (currentLine ? ' ' : '') + word).length <= maxLineLength) {
+                currentLine += (currentLine ? ' ' : '') + word;
+            } else {
+                lines.push(currentLine);
+                currentLine = word;
+            }
+        });
+        lines.push(currentLine);
+    });
+
+    // Trim lines to maxLines
+    if (lines.length > maxLines) {
+        console.error('Phrase too long to display');
+        lines.length = maxLines;
+    }
+
+    const sign = document.querySelector('.sign');
+    sign.innerHTML = ''; // Clear previous content
+
+    lines.forEach(line => {
+        const length = line.length;
+        const padding = maxLineLength - length;
+        const paddingLeft = Math.floor(padding / 2);
+        const paddingRight = padding - paddingLeft;
+        const paddedLine = ' '.repeat(paddingLeft) + line + ' '.repeat(paddingRight);
+
+        const lineDiv = document.createElement('div');
+        lineDiv.classList.add('line'); // Create a line div
+
+        let flashingChar = false;
+
+        const flashingChars = [];
+        const regex = /=(.*?)=/g;
+        let match;
+        while ((match = regex.exec(paddedLine)) !== null) {
+            const chars = match[1].trim();
+            flashingChars.push(...chars);
+        }
+
+        paddedLine.split('').forEach(char => {
+            if (char === ' ') {
+                char = 'SPACE'; // Replace space with 'SPACE'
+            }
+            if (char === '=') {
+                flashingChar = !flashingChar;
+                char = '';
+            }
+
+            lineDiv.appendChild(createLetter(char, flashingChar));
+        });
+
+        sign.appendChild(lineDiv);
+    });
+}
+
+// Example usage:
+//buildWord('minutes to:[NL]US-20       15[NL]Salt Lake  277');
+//buildWord('minutes to:[NL]byu-idaho   15[NL]st.anthony  27');
+
+document.getElementById('messageInput').addEventListener('input', function (event) {
+    const text = event.target.value.replace(/\n/g, '[NL]');
+    buildWord(text);
+});
+
+async function shareMessage() {
+    const text = document.getElementById('messageInput').value;
+    try {
+        const response = await fetch('/share', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ message: text })
+        });
+        const data = await response.json();
+        const shareUrl = `${window.location.origin}/${data.id}`;
+        const shareUrlDiv = document.getElementById('shareUrl');
+        shareUrlDiv.textContent = shareUrl;
+        shareUrlDiv.style.display = 'block';
+    } catch (error) {
+        console.error('Error sharing message:', error);
+    }
+}
+
+
+setInterval(() => {
+    // Select all elements with the class .flashing.on
+    const flashingOnElements = document.querySelectorAll('.flashing.on');
+
+    if (flashingOnElements.length > 0) {
+        // Turn off all elements with the class .flashing.on
+        flashingOnElements.forEach(element => {
+            element.classList.remove('on');
+            element.classList.add('off');
+        });
+    } else {
+        // Turn on all elements with the class .flashing
+        const flashingElements = document.querySelectorAll('.flashing.off');
+        flashingElements.forEach(element => {
+            element.classList.add('on');
+            element.classList.remove('off');
+        });
+    }
+}, 1000);
