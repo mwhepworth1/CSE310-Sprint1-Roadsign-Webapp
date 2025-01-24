@@ -1,3 +1,9 @@
+/*
+    GitHub Copilot using GPT-4o was the inspiration for representing the on/off state of the dots as an object
+    called charMap that maps characters to a 2D array of 1s and 0s. This object is used to create the dots for
+    each character in the buildWord function.
+    GitHub Copilot was not utilized to expand the charMap object to its full potential.
+*/
 const charMap = {
     // 5 long
     // 7 tall
@@ -468,6 +474,12 @@ function createLetter(char, isFlashing) {
     return letter;
 }
 
+/*
+    buildWord function edited by GitHub Copilot using GPT-4o and Claude Sonnet 3.5 to:
+    - Add support for flashing characters
+    - Add support for multiple lines
+    GitHub Copilot was NOT used to generate the original buildWord function.
+*/
 function buildWord(word) {
     word = word.toUpperCase();
 
