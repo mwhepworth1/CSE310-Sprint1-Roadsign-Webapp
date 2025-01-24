@@ -557,6 +557,11 @@ async function shareMessage() {
             },
             body: JSON.stringify({ message: text })
         });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
         const data = await response.json();
         const shareUrl = `${window.location.origin}/${data.id}`; // Craft share URL based on location and ID
         const shareUrlDiv = document.getElementById('shareUrl');
@@ -566,7 +571,6 @@ async function shareMessage() {
         console.error('Error sharing message:', error);
     }
 }
-
 
 setInterval(() => {
     // Select all elements with the class .flashing.on
